@@ -80,7 +80,7 @@
 
 
 		componentDidMount: function () {
-			var options = _extend(_extend({}, _defaultOptions), this.sortableOptions || {}),
+			var options = _extend(_extend({}, _defaultOptions), this.sortableOptions || {}, this.props.sortableOptions),
 				copyOptions = _extend({}, options),
 
 				emitEvent = function (/** string */type, /** Event */evt) {

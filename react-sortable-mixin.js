@@ -80,13 +80,18 @@
 
 
 		componentDidMount: function () {
-			var options = _extend(_extend({}, _defaultOptions), this.sortableOptions || {}, this.props.sortableOptions),
-				copyOptions = _extend({}, options),
+			var options = _extend(_extend({}, _defaultOptions), this.sortableOptions || {});
 
-				emitEvent = function (/** string */type, /** Event */evt) {
-					var method = this[options[type]];
-					method && method.call(this, evt, this._sortableInstance);
-				}.bind(this);
+			var optionsWithProps = _extend(options, this.props.sortableOptions);
+
+			var copyOptions = _extend({}, optionsWithProps);
+
+			var emitEvent = function (/** string */type, /** Event */evt) {
+				var method = this[options[type]];
+				method && method.call(this, evt, this._sortableInstance);
+			}.bind(this);
+
+			console.log(copyOptions, this.props);
 
 
 			// Bind callbacks so that "this" refers to the component

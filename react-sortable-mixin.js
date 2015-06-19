@@ -91,8 +91,6 @@
 				method && method.call(this, evt, this._sortableInstance);
 			}.bind(this);
 
-			console.log(copyOptions, this.props);
-
 
 			// Bind callbacks so that "this" refers to the component
 			'onStart onEnd onAdd onSort onUpdate onRemove onFilter'.split(' ').forEach(function (/** string */name) {
